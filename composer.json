@@ -1,5 +1,5 @@
 {
-    "name": "william/digital-cep",
+    "name": "williamtome/digital-cep",
     "description": "Search CEP Online",
     "type": "library",
     "license": "MIT",
@@ -17,7 +17,7 @@
             "Search": "src/"
         },
         "psr-4": {
-            "William\\DigitalCep\\": "src"
+            "WilliamTome\\DigitalCep\\": "src"
         }
     }
 }

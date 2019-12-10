@@ -1,6 +1,6 @@
 <?php
 
-namespace William\DigitalCep;
+namespace WilliamTome\DigitalCep;
 
 class Search {
     

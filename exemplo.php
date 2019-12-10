@@ -2,7 +2,7 @@
 
 require_once "vendor/autoload.php";
 
-use William\DigitalCep\Search;
+use WilliamTome\DigitalCep\Search;
 
 $busca = new Search;
 
