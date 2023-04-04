@@ -6,10 +6,26 @@ use WilliamTome\DigitalCep\WS\ViaCep;
 
 class Search
 {
+    private ViaCep $viaCep;
+
+    public function __construct()
+    {
+        $this->viaCep = new ViaCep();
+    }
+
     public function getAddressFromZipcode(string $zipCode): array
     {
-        $zipCode = preg_replace('/[^0-9]/im', '', $zipCode);
+        $zipCode = $this->clearZipcode($zipCode);
 
-        return (new ViaCep())->get($zipCode);
+        return $this->viaCep->get($zipCode);
+    }
+
+    public function clearZipcode(string $zipCode): ?string
+    {
+        return preg_replace(
+            '/[^0-9]/im',
+            '',
+            $zipCode
+        );
     }
 }
