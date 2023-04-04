@@ -20,7 +20,7 @@ class SearchTest extends TestCase
         $this->assertEquals($expected, $result);
     }
 
-    public function addresses()
+    public static function addresses()
     {
         return [
             'Endereço Praça da Sé' => [
@@ -39,18 +39,18 @@ class SearchTest extends TestCase
                 ],
             ],
             'Endereço Qualquer' => [
-                '43325534', 
+                '92320620', 
                 [
-                    'cep' => "43325-534",
-                    "logradouro" => "Praça da Sé",
-                    "complemento" => "lado ímpar",
-                    "bairro" => "Sé",
-                    "localidade" => "São Paulo",
-                    "uf" => "SP",
-                    "ibge" => "3550308",
-                    "gia" => "1004",
-                    "ddd" => "11",
-                    "siafi" => "7107",
+                    'cep' => "92320-620",
+                    "logradouro" => "Rua Clóvis Beviláqua",
+                    "complemento" => "",
+                    "bairro" => "Harmonia",
+                    "localidade" => "Canoas",
+                    "uf" => "RS",
+                    "ibge" => "4304606",
+                    "gia" => "",
+                    "ddd" => "51",
+                    "siafi" => "8589",
                 ],
             ],
         ];
