@@ -7,17 +7,29 @@ use WilliamTome\DigitalCep\Search;
 
 class SearchTest extends TestCase
 {
+    private $search;
+
+    public function setUp(): void
+    {
+        $this->search = new Search();
+    }
+    
     /**
      * @dataProvider addresses
      */
     public function testGetAddressFromZipcode(string $input, array $expected)
     {
-        // Act
-        $search = new Search;
-        $result = $search->getAddressFromZipcode($input);
+        $result = $this->search->getAddressFromZipcode($input);
 
-        // Assert
         $this->assertEquals($expected, $result);
+    }
+
+    public function testShouldReturnACleanZipcode()
+    {
+        $zipcode = '01001-000';
+        $zipcodeCleaned = $this->search->clearZipcode($zipcode);
+
+        $this->assertEquals($zipcodeCleaned, '01001000');
     }
 
     public static function addresses()
