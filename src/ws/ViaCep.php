@@ -8,7 +8,8 @@ class ViaCep
 
     public function get(string $zipCode): array
     {
-        $data = file_get_contents(self::URL . $zipCode . "/json");
+        $url = self::URL . $zipCode . "/json";
+        $data = file_get_contents($url);
 
         return (array) json_decode($data);
     }
