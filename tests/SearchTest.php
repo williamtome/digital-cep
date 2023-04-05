@@ -24,12 +24,28 @@ class SearchTest extends TestCase
         $this->assertEquals($expected, $result);
     }
 
-    public function testShouldReturnACleanZipcode()
+    /**
+     * @dataProvider zipcodes
+     */
+    public function testShouldReturnACleanZipcode(string $input, $expected)
     {
-        $zipcode = '01001-000';
-        $zipcodeCleaned = $this->search->clearZipcode($zipcode);
+        $zipcodeCleaned = $this->search->clearZipcode($input);
 
-        $this->assertEquals($zipcodeCleaned, '01001000');
+        $this->assertEquals($expected, $zipcodeCleaned);
+    }
+
+    public static function zipcodes()
+    {
+        return [
+            'CEP corretos' => [
+                '92320-620',
+                '92320620',
+            ],
+            'CEP incorretos' => [
+                '93@415-5ab00%',
+                '93415500',
+            ],
+        ];
     }
 
     public static function addresses()
